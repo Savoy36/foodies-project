@@ -1,11 +1,9 @@
 # Team Foodies
 #### Yazeed Almuqwishi ~ Oliver Collins ~ Omar Mohammed ~ Jonathan Noranbrock ~ Savoy Smith ~ Alec Sobkoviak
 
----
 
 > “We plan on revolutionizing the way people plan out meals”
 
----
 
 Our group, Team Foodies, plans on making an application that will curate recipes for the consumer based on selected inputs. 
 
@@ -13,30 +11,26 @@ The user will put within our app what kind of food they want (Thai, Chinese, Mex
 
 We decided to make Mepp because we believe people, especially millennials, have trouble not only cooking, but figuring out what to make for everyday meals. Mepp will completely remove this hassle, saving people hundreds of hours yearly and completely change the way make meals.
 
----
 
 ## Risks Anticipated
 
 There are a few risks we expect, but plan on avoiding or minimizing as possible. One of problems we already seem to face is lack of experience with 
 
----
 
 ## Version Control
 
 Our team plans on following the agile methodology. We believe this is the best way to manage and capitalize on all of our talents. Through this method, we will all discuss as a team and decide on key decisions that our application needs. We then will delegate tasks accordingly to our roles within the team. But, all roles within the team are considered equal while we dedicate a team leader for each “scrum” or “learning lesson”.
 
----
 
 ## Development Method
 
 Our team plans on following the agile methodology. We believe this is the best way to manage and capitalize on all of our talents. Through this method, we will all discuss as a team and decide on key decisions that our application needs. We then will delegate tasks accordingly to our roles within the team. But, all roles within the team are considered equal while we dedicate a team leader for each “scrum” or “learning lesson”.
 
----
 
 ## Collaboration Tool(s)
+
 Our team plans on using Slack for the majority of communication, while using Trello for task delegation.
 
----
 
 ## Proposed Architecture
 
