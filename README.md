@@ -1,7 +1,7 @@
-<center> # Team Foodies </center>
+# <center> Team Foodies </center>
 ##### <center> Yazeed Almuqwishi ~ Oliver Collins ~ Omar Mohammed ~ Jonathan Noranbrock ~ Savoy Smith ~ Alec Sobkoviak </center>
 
-> <center> “We plan on revolutionizing the way people plan out meals” </center>
+> “We plan on revolutionizing the way people plan out meals”
 
 	Our group, Team Foodies, plans on making an application that will curate recipes for the consumer based on selected 
 
