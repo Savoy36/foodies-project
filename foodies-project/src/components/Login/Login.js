@@ -9,7 +9,8 @@ export default class Login extends React.Component {
 			<View style={styles.logoContainer}>
 				<Image 
 					style={styles.logo}
-					source={require('../../components/images/mepp2.png')} 
+					source={require('../../components/images/mepp4.png')} 
+					resizeMode="contain"
 					/>					
 					<Text style={styles.title}>Placeholder Image and Description</Text>
 			</View>
@@ -24,19 +25,21 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#87D37C',
+    backgroundColor: '#89C4F4',
   },
   logoContainer: {
 	alignItems: 'center',
-	flexGrow: 3,
+	flexGrow: 2,
 	justifyContent: 'center'
   },
   logo: {
-	 width: 315,
-	 height: 170
+	 flexGrow:2,
+	 alignSelf:'stretch',
+	 width: undefined,
+	 height: undefined,
   },
   title: {
-	color: '#FFF',
+	color: '#000',
 	marginTop: 10
   }
 });
