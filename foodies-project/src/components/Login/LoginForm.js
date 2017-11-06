@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 export default class LoginForm extends React.Component {
   render() {
     return (
+	  
 	  <View style={styles.container}>
         <TextInput 
 			placeholder="username or email"
@@ -15,6 +16,7 @@ export default class LoginForm extends React.Component {
 			autoCorrect={false}
 			style={styles.input}
         />
+       
         <TextInput 
 			placeholder="password" 
 			placeholderTextColor="rgba(0,0,0,0.4)"
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
 	paddingHorizontal: 10
   },
     buttonContainer: {
-	backgroundColor: '#96281B',
+	backgroundColor: '#52B3D9',
 	paddingVertical: 10
   },
   buttonText: {
