@@ -1,7 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import * as firebase from 'firebase';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
+
+//var userId = firebase.auth().currentUser.uid;//get user id
+//return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+ // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+  // ...
+//});
 
 export default class LoginForm extends React.Component {
+
   render() {
     return (
 	  
@@ -31,7 +39,7 @@ export default class LoginForm extends React.Component {
         <TouchableOpacity style={styles.buttonContainer}>
 			<Text style={styles.buttonText}>LOGIN</Text>
 		</TouchableOpacity>
-        
+
       </View>
     );
   }
