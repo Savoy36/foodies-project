@@ -35,11 +35,20 @@ export default class LoginForm extends React.Component {
 			style={styles.input}
 			ref={(input) => this.passwordInput = input}
         />
-        
-        <TouchableOpacity style={styles.buttonContainer}>
+       <View>
+       	{Object.keys(Routes).map((routeName: string) => (
+        <TouchableOpacity 
+        	key={routeName}
+	        style={styles.buttonContainer}
+	        onPress={() => {
+	        	const { screen } = Routes[routeName]; 
+	        	const { router } = screen;
+	        navigation.navigate(routeName); 
+	    }}
+       >
 			<Text style={styles.buttonText}>LOGIN</Text>
 		</TouchableOpacity>
-
+		))}
       </View>
     );
   }
