@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import LoginForm from './LoginForm';
 
 export default class Login extends React.Component {
   render() {
     return (
+		
 		<KeyboardAvoidingView behavior="padding" style={styles.container}>
+			
 			<View style={styles.logoContainer}>
 				<Image 
 					style={styles.logo}
@@ -14,9 +16,15 @@ export default class Login extends React.Component {
 					/>					
 					<Text style={styles.title}>Placeholder Image and Description</Text>
 			</View>
+			
 			<View style={styles.formContainer}>
 				<LoginForm />
 			</View>
+			
+			<TouchableOpacity style={styles.CreateAccountButton}>
+				<Text style={styles.CreateAccountButtonText}>Create Account</Text>
+			</TouchableOpacity>
+		  
 		  </KeyboardAvoidingView>
     );
   }
@@ -25,7 +33,7 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F27935',
+    backgroundColor: '#E4F1FE',
   },
   logoContainer: {
 	alignItems: 'center',
@@ -40,6 +48,13 @@ const styles = StyleSheet.create({
   title: {
 	color: '#000',
 	marginTop: 10
+  },
+  CreateAccountButton: {
+  	marginBottom: 10,
+  	paddingLeft: 10
+  },
+  CreateAccountButtonText: {
+  	color: '#013243'
   }
 });
 
