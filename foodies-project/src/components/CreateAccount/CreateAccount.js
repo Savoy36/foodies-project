@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import { StyleSheet, Text, View,  TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import Login from '../../components/Login/Login'
 
 const database = firebase.database();
 
-class newUser extends Component{
-	constructor(props){
-		super(props)
-
-	this.state={
-		username: '',
-		name: '',
-		email: '',
-		password: '',
-	}
-}
-
-}
 
 const CreateAccount = ({ navigation }) => (
 
@@ -28,16 +15,21 @@ const CreateAccount = ({ navigation }) => (
 		name: '',
 		email: '',
 		password: '',
+		enabled: false,
 	},
-	createUser = () => {//write user data
+createUser = () => {//write user data
   firebase.database().ref('users/' + this.state.username).set({
     name: this.state.name,
     email: this.state.email,
     password: this.state.password
   });
 },
-
-
+enableButton = () => {
+	if (this.state.username.length > 0 && this.state.password.length > 0) {
+		this.state.enabled=true;
+	}
+},
+		
     	<View style={styles.container}>
     		<TouchableOpacity 
     			style={styles.goBack}
@@ -54,8 +46,9 @@ const CreateAccount = ({ navigation }) => (
     			onSubmitEditing={() => this.passwordInput.focus()}
     			autoCapitalize="none"
     			autoCorrect={false}
-    			onChangeText={(text) =>
+    			onChangeText={(text) => {
     				this.state.username=text
+    				}
     			}
     			style={styles.input}
     		/>
@@ -95,14 +88,23 @@ const CreateAccount = ({ navigation }) => (
 	          autoCapitalize="none"
 	          autoCorrect={false}
 	          style={styles.input}
-	          onChangeText={(text) => this.state.password=text}
+	          onChangeText={(text) => {
+	    		enableButton()
+	          	this.state.password=text
+	          		}
+	      		}
 	          ref={(input) => this.passwordInput = input}
 	        />
 
 	       	<TouchableOpacity 
 	       		style={styles.signUpButton}
-	       		onPress={() => {this.createUser()
+	       		activeOpacity={this.state.enabled ? 0.5 : 1}
+	       		//disabled={!this.state.username}
+	       		onPress={() => {
+	       			if (this.state.enabled){
+	       			this.createUser()
 	       			navigation.navigate('Login')}
+	       			}
 	       		}>
 	       		<Text style={styles.signUpButtonText}>Sign-up</Text>
 	       	</TouchableOpacity>		

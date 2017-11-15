@@ -7,6 +7,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 const VerifyLogin = ({ navigation }) => (
+
+	
+
 	<Text style={styles.textContainer}>Alec: I'm thinking this page we treat as a function
 		that either sends the user back to the login page if credentials do not match up or
 		breaks the navigation stack by setting their navigation state to root on the next page (home page).

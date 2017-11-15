@@ -1,7 +1,5 @@
-//This is messy and needs work, but functional for now -Savoy 
-//Alec: Login authentication goes in ./VerifyLogins.js 
-
 import React from 'react';
+import {Alert} from 'react-native'
 import * as firebase from 'firebase';
 import { StyleSheet, Text, TextInput, View, Image, KeyboardAvoidingView, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
 import { StackNavigator, SafeAreaView } from 'react-navigation';
@@ -27,6 +25,39 @@ function createUser(username, name, email, password) {//write user data
 }
 
 const Login = ({ navigation }) => (
+  this.state={
+    username: '',
+    password: '',
+    found: true
+  },
+userExistsCallback = (exists) => {
+  if (exists) {
+    alert('user ' + this.state.username + ' exists!');
+  } else {
+    alert('user ' + this.state.username + ' does not exist!');
+  }
+},
+verifyPassCallback = (passMatch) => {
+  if (passMatch) {
+    alert('Successfully Logged In!');
+  } else {
+    alert('Password Is Incorrect!');
+  }
+},
+userExists = () => {
+  usersRef = firebase.database().ref('users');
+  //usersRef = new firebase(USERS_LOCATION);
+  usersRef.child(this.state.username).once('value', function(snapshot) {
+    exists = (snapshot.val() !== null);
+    userExistsCallback(exists);
+  });
+},
+verifyPass = () => {
+  passRef = firebase.database().ref('users/' + this.state.username + '/password').once('value').then(function(snapshot) {
+  passMatch = (snapshot.val() == this.state.password);
+  verifyPassCallback(passMatch);
+  });
+},
   <KeyboardAvoidingView behavior="padding" style={styles.container}>
     
     <View>
@@ -51,13 +82,14 @@ const Login = ({ navigation }) => (
             
       <View style={styles.formContainerTwo}>
         <TextInput 
-          placeholder="username or email"
+          placeholder="username"
           placeholderTextColor="rgba(0,0,0,0.4)"
           returnKeyType="next"
           onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
           autoCapitalize="none"
           autoCorrect={false}
+          onChangeText={(text) => this.state.username=text}
           style={styles.input}
         />
        
@@ -68,6 +100,7 @@ const Login = ({ navigation }) => (
           secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
+          onChangeText={(text) => this.state.password=text}
           style={styles.input}
           ref={(input) => this.passwordInput = input}
         />
@@ -76,7 +109,11 @@ const Login = ({ navigation }) => (
           style={styles.loginButtonContainer}
           //Alec: pass text input params to DB here, still could 
           //not figure out how to do this. 
-          onPress={() => navigation.navigate('VerifyLogin')}>
+          onPress={() => {//navigation.navigate('VerifyLogin')
+              userExists()
+              verifyPass()
+            }
+          }>
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
