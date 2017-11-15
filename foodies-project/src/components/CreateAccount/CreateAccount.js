@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import * as firebase from 'firebase';
 import { StyleSheet, Text, View,  TextInput, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import Login from '../../components/Login/Login'
 
+const database = firebase.database();
+
+class newUser extends Component{
+	constructor(props){
+		super(props)
+
+	this.state={
+		username: '',
+		name: '',
+		email: '',
+		password: '',
+	}
+}
+
+}
+
 const CreateAccount = ({ navigation }) => (
+
+		this.state={
+		username: '',
+		name: '',
+		email: '',
+		password: '',
+	},
+	createUser = () => {//write user data
+  firebase.database().ref('users/' + this.state.username).set({
+    name: this.state.name,
+    email: this.state.email,
+    password: this.state.password
+  });
+},
+
 
     	<View style={styles.container}>
     		<TouchableOpacity 
@@ -22,6 +54,9 @@ const CreateAccount = ({ navigation }) => (
     			onSubmitEditing={() => this.passwordInput.focus()}
     			autoCapitalize="none"
     			autoCorrect={false}
+    			onChangeText={(text) =>
+    				this.state.username=text
+    			}
     			style={styles.input}
     		/>
 
@@ -32,6 +67,9 @@ const CreateAccount = ({ navigation }) => (
     			onSubmitEditing={() => this.passwordInput.focus()}
     			autoCapitalize="words"
     			autoCorrect={false}
+    			onChangeText={(text) =>
+    				this.state.name=text
+					}
     			style={styles.input}
     		/>
 
@@ -43,6 +81,9 @@ const CreateAccount = ({ navigation }) => (
     			keyboardType="email-address"
     			autoCapitalize="none"
     			autoCorrect={false}
+    			onChangeText={(text) =>
+    				this.state.email=text
+						}
     			style={styles.input}
     		/>
 
@@ -54,12 +95,15 @@ const CreateAccount = ({ navigation }) => (
 	          autoCapitalize="none"
 	          autoCorrect={false}
 	          style={styles.input}
+	          onChangeText={(text) => this.state.password=text}
 	          ref={(input) => this.passwordInput = input}
 	        />
 
 	       	<TouchableOpacity 
 	       		style={styles.signUpButton}
-	       		onPress={() => navigation.navigate('Login')}>
+	       		onPress={() => {this.createUser()
+	       			navigation.navigate('Login')}
+	       		}>
 	       		<Text style={styles.signUpButtonText}>Sign-up</Text>
 	       	</TouchableOpacity>		
     	</View>
