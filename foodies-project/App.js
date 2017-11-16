@@ -13,12 +13,10 @@ import CreateAccount from './src/components/CreateAccount/CreateAccount';
 const Routes = {
   Login: {
     name: 'Login',
-    description: 'Have an account? Login',
     screen: Login,
   },
   CreateAccount: {
     name: 'Sign Up',
-    description: 'Not signed up with us? Create an account',
     screen: CreateAccount, 
   },
 };
@@ -26,6 +24,7 @@ const Routes = {
 
 
 const MainScreen = ({ navigation }) => (
+
     <Image
     source={require('./src/components/images/main_page.jpg')}
      style={styles.container}>
@@ -96,28 +95,22 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     backgroundColor: '#1E824C',
-    marginBottom: 25, 
+    marginBottom: 20, 
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius:10,
     borderWidth: 0,
     width: 300,
     borderColor: '#fff',
-    paddingTop:15,
+    paddingTop:10,
     paddingLeft: 10,
     paddingRight: 10,
-    paddingBottom:20,
   },
   buttonContainerText:{
     textAlign: 'center',
-    color: 'black',
+    color: 'white',
     fontWeight: '700',
-    fontSize: 20
-  },
-  descriptionButtonText:{
-    textAlign: 'center',
-    color: 'black',
-    fontWeight: '200'
+    fontSize: 28
   },
  overlay: {
    position: 'absolute',
