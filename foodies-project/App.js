@@ -1,7 +1,7 @@
 //Navigation Root (for now)
 
 import React from 'react';
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, BackgroundImage, TouchableOpacity, Image } from 'react-native';
 import { StackNavigator, SafeAreaView } from 'react-navigation';
 import * as firebase from 'firebase';
 
@@ -26,7 +26,9 @@ const Routes = {
 
 
 const MainScreen = ({ navigation }) => (
-    <View style={styles.container}>
+    <Image
+    source={require('./src/components/images/main_page.jpg')}
+     style={styles.container}>
       <Text style={styles.titleStyle}>Mepp</Text>
       {Object.keys(Routes).map((routeName: string) => (
         <TouchableOpacity
@@ -47,7 +49,7 @@ const MainScreen = ({ navigation }) => (
         </SafeAreaView>
         </TouchableOpacity>
       ))}
-  </View>
+  </Image>
 );
 
 
@@ -78,22 +80,28 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 250,
     color: 'black',
-    fontSize: 32,
+    fontSize: 64,
+    fontFamily: 'Cochin',
     fontWeight: 'bold',
   },
   container: {
-    backgroundColor: '#E4F1FE',
+    // backgroundColor: '#E4F1FE',
     flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonContainer: {
-    backgroundColor: '#52B3D9',
+    backgroundColor: '#1E824C',
     marginBottom: 25, 
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius:10,
-    borderWidth: 1,
+    borderWidth: 0,
+    width: 300,
     borderColor: '#fff',
     paddingTop:15,
     paddingLeft: 10,
@@ -110,7 +118,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontWeight: '200'
-  }
+  },
+ overlay: {
+   position: 'absolute',
+   top: 0,
+   right: 0,
+   bottom: 0,
+   left: 0,
+   backgroundColor: 'red',
+   opacity: 0.3
+ }
 });
 
 //Export down here when declaring screens as const vars (best way to do it)
