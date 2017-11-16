@@ -12,7 +12,7 @@ import CreateAccount from './src/components/CreateAccount/CreateAccount';
 
 const Routes = {
   Login: {
-    name: 'Login',
+    name: 'Log In',
     screen: Login,
   },
   CreateAccount: {
@@ -26,7 +26,7 @@ const Routes = {
 const MainScreen = ({ navigation }) => (
 
     <Image
-    source={require('./src/components/images/main_page.jpg')}
+    source={require('./src/components/images/test2.jpg')}
      style={styles.container}>
       <Text style={styles.titleStyle}>Mepp</Text>
       {Object.keys(Routes).map((routeName: string) => (
@@ -94,15 +94,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonContainer: {
-    backgroundColor: '#1E824C',
+    // backgroundColor: '#1E824C',
+    backgroundColor: '#60AFFE',
     marginBottom: 20, 
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius:10,
+    borderRadius:5,
     borderWidth: 0,
-    width: 300,
+    width: 180,
     borderColor: '#fff',
-    paddingTop:10,
+    paddingTop:15,
     paddingLeft: 10,
     paddingRight: 10,
   },
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     fontWeight: '700',
-    fontSize: 28
+    fontSize: 22
   },
  overlay: {
    position: 'absolute',
