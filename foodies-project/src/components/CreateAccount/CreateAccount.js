@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import Login from '../../components/Login/Login'
+import Login from '../../components/Login/Login';
 
 const database = firebase.database();
 

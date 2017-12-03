@@ -4,7 +4,8 @@ import * as firebase from 'firebase';
 import { StyleSheet, Text, TextInput, View, Image, KeyboardAvoidingView, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
 import { StackNavigator, SafeAreaView } from 'react-navigation';
 
-import VerifyLogin from './VerifyLogin'; 
+import VerifyLogin from './VerifyLogin';
+import MainScreen from '../../components/MainPage/MainScreen';  
 
 const firebaseConfig = {
   apiKey: "AIzaSyA45vMMLm17hnDg33BCOFuLX-w96MZnU3Y",
@@ -66,6 +67,11 @@ verifyPass = () => {
           //Standard 'go back button function'
           onPress={() => navigation.goBack(null)}>
           <Text style={styles.goBackButtonText}>Back</Text>          
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.skipButton}
+        onPress={() => navigation.navigate('MainScreen')}>
+        <Text style={styles.skipButtonText}>Skip</Text>
       </TouchableOpacity>
     </View>  
 
@@ -132,6 +138,9 @@ const LoginScreen = StackNavigator({
     VerifyLogin: {
       screen: VerifyLogin,
     },
+    MainScreen: {
+      screen: MainScreen,
+    }
   },
     {
       headerMode: 'none',
@@ -153,10 +162,22 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     fontSize: 16
   },
+  skipButton: {
+    justifyContent: 'right',
+    alignItems: 'flex-end',
+    marginTop: 15,
+    marginBottom: 10,
+    paddingRight: 15
+  },
+  skipButtonText: {
+    color: '#013243',
+    fontWeight: '100',
+    fontSize: 16   
+  },
   logoContainer: {
-	alignItems: 'center',
-	flexGrow: 2,
-	justifyContent: 'center'
+	 alignItems: 'center',
+	 flexGrow: 2,
+	 justifyContent: 'center'
   },
   logo: {
 	 flexGrow:2,
